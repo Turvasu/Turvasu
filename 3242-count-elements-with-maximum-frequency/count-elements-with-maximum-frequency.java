@@ -6,7 +6,16 @@ class Solution {
         for(int i=0;i<n.length-1;i++)
         {
             if(n[i]==n[i+1])
+            {
                 c++;
+                if(i==n.length-2)
+                {
+                    if(b==c)
+                        f=b+f;
+                    else if(c>b)
+                        f=c;
+                }
+            }
             else
             {
                 if(b==c)
@@ -17,16 +26,6 @@ class Solution {
                     f=b;
                 }
                 c=1;   
-            }
-            if(n[i]==n[i+1] && i==n.length-2)
-            {
-                if(b==c)
-                    f=b+f;
-                else if(c>b)
-                {
-                    b=c;
-                    f=b;
-                }
             }
         }
         return f;
